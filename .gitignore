@@ -1,0 +1,33 @@
+# Python cache
+__pycache__/
+*.py[cod]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual env
+.venv/
+venv/
+.env/
+env/
+
+# IDEs
+.vscode/
+*.swp
+
+# Jupyter
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Logs
+*.log
+
+# User generated files
+#
+
+# Large datasets
+## NetCDF files (all .npy files)
+*.npy
+## But keep this specific file
+

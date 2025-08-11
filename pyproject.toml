@@ -1,0 +1,80 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mscred-my-version"
+version = "0.1.0"
+description = "Implement MSCRED architecture to understand how it works."
+readme = {file = "README.md", content-type = "text/markdown"}
+requires-python = ">=3.11"
+authors = [{name = "Louis Brusset", email = "louis.brusset@etu.minesparis.psl.eu"}]
+license = {text = "Not for the moment."}
+keywords = ["pytorch", "lstm", "anomaly-detection", "deep-learning"]
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+dependencies = [
+    "torch>=2.0.0,<3.0.0",  # PyTorch CPU version
+    "numpy>=1.24.0,<2.0.0",  # Compatible avec Python 3.11
+    "matplotlib>=3.6.0,<4.0.0",  # Pour les graphiques
+    "pandas>=2.0.0,<3.0.0",  # Pour la manipulation des données
+    "scipy>=1.10.0,<2.0.0",  # Pour les calculs scientifiques
+    "tqdm>=4.64.0,<5.0.0",  # Pour les barres de progression
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0",
+]
+
+[project.urls]
+Repository = "https://github.com/LouisBrusset/Pytorch-MSCRED#"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["model*", "utils*"]
+exclude = ["tests*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py311']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "--cov=. --cov-report=html --cov-report=term-missing"
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true

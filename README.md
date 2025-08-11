@@ -1,3 +1,5 @@
+Source https://github.com/Zhang-Zhi-Jie/Pytorch-MSCRED/tree/master/model
+
 # Pytorch-MSCRED
 
 这是使用PyTorch实现MSCRED
@@ -20,3 +22,35 @@ TensorFlow实现地址：
 - 最后评估模型，结果存在`outputs`文件夹中
 
   > python ./utils/evaluate.py
+
+
+
+
+
+# Pytorch-MSCRED (LLM english translation)
+
+This is an implementation of MSCRED using PyTorch.
+
+Original paper:
+[http://in.arxiv.org/abs/1811.08055](http://in.arxiv.org/abs/1811.08055)
+
+TensorFlow implementation:
+[https://github.com/7fantasysz/MSCRED](https://github.com/7fantasysz/MSCRED)
+
+This project converts the TensorFlow implementation to PyTorch. The process is as follows:
+
+- First, convert the time series data into image matrices:
+
+  ```bash
+  python ./utils/matrix_generator.py
+  ```
+- Then, train the model and generate the corresponding reconstructed matrices for the test set:
+
+  ```bash
+  python main.py
+  ```
+- Finally, evaluate the model. The results will be stored in the output folder:
+
+  ```bash
+  python ./utils/evaluate.py
+  ```
